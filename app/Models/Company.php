@@ -6,10 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends \TomatoPHP\FilamentEcommerce\Models\Company
 {
-    protected $fillable = [
-        'name',
+    //Add is_default to the parent fillable array
+    protected $extraFillable = [
         'is_default',
     ];
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->fillable = array_merge($this->fillable, $this->extraFillable);
+
+    }
 
     /**
      * Check if another company is active.
