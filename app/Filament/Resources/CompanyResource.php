@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\CompanyResource\Pages;
 use App\Models\Company;
+use Filament\Facades\Filament;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Actions\Action;
@@ -36,7 +37,6 @@ class CompanyResource extends ResourcesCompanyResource
                     ->modalSubmitActionLabel(trans('filament-ecommerce::messages.company.action.modal_submit_action_label'))
                     ->modalCancelActionLabel(trans('filament-ecommerce::messages.company.action.modal_cancel_action_label'))
                     ->action(function (Company $record) {
-                        // Placeholder for any action you want to perform
                         $record->activate();
                     })
             ]);

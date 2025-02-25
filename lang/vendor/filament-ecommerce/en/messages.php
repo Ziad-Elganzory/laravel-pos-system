@@ -28,6 +28,9 @@ return [
             "modal_submit_action_label" => "Yes, activate it",
             "modal_cancel_action_label" => "Cancel",
         ],
+        "notification" => [
+            "message" => ":company Activated Successfully!",
+        ]
     ],
     'branch' => [
         'title' => 'Branches',

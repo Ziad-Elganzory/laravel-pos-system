@@ -28,6 +28,9 @@ return [
             "modal_submit_action_label" => "نعم، قم بتفعيلها",
             "modal_cancel_action_label" => "إلغاء",
         ],
+        "notification" => [
+            "message" => "تم تفعيل :company بنجاح",
+        ]
     ],
     'branch' => [
         'title' => 'الفروع',

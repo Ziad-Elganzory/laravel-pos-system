@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Model;
 
 class Company extends \TomatoPHP\FilamentEcommerce\Models\Company
@@ -37,5 +38,9 @@ class Company extends \TomatoPHP\FilamentEcommerce\Models\Company
 
         // Set this company as active
         $this->update(['is_default' => true]);
+        Notification::make()
+            ->title(trans('filament-ecommerce::messages.company.notification.message', ['company' => $this->name]))
+            ->success()
+            ->send();
     }
 }
