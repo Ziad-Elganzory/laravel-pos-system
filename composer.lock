@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c59ca5aac0b84cc3684b47af9fec77b7",
+    "content-hash": "aeecafa03fc0b91f694d1cc6e45dd4d3",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -9510,6 +9510,78 @@
                 }
             ],
             "time": "2025-02-08T14:08:00+00:00"
+        },
+        {
+            "name": "tomatophp/filament-language-switcher",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tomatophp/filament-language-switcher.git",
+                "reference": "c76d2e0fb06a864f987a1ed2527a284ad65e7860"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tomatophp/filament-language-switcher/zipball/c76d2e0fb06a864f987a1ed2527a284ad65e7860",
+                "reference": "c76d2e0fb06a864f987a1ed2527a284ad65e7860",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.2",
+                "php": "^8.1|^8.2",
+                "tomatophp/console-helpers": "^1.1"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.18",
+                "livewire/livewire": "^2.10|^3.0",
+                "nunomaduro/larastan": "^2.9",
+                "orchestra/testbench": "^9.5",
+                "pestphp/pest": "^2.36",
+                "pestphp/pest-plugin-laravel": "^2.4",
+                "pestphp/pest-plugin-livewire": "^2.1",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan-deprecation-rules": "^1.2",
+                "phpstan/phpstan-phpunit": "^1.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "TomatoPHP\\FilamentLanguageSwitcher\\FilamentLanguageSwitcherServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TomatoPHP\\FilamentLanguageSwitcher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fady Mondy",
+                    "email": "info@3x1.io"
+                }
+            ],
+            "description": "Switch between languages on your app using user base column on database",
+            "keywords": [
+                "laravel",
+                "php",
+                "template"
+            ],
+            "support": {
+                "issues": "https://github.com/tomatophp/filament-language-switcher/issues",
+                "source": "https://github.com/tomatophp/filament-language-switcher/tree/v1.0.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/3x1io",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-11-27T09:38:57+00:00"
         },
         {
             "name": "tomatophp/filament-locations",

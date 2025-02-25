@@ -35,7 +35,8 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 \TomatoPHP\FilamentPos\FilamentPOSPlugin::make(),
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
-                \TomatoPHP\FilamentPos\FilamentPOSPlugin::make()->allowShield()
+                \TomatoPHP\FilamentPos\FilamentPOSPlugin::make()->allowShield(),
+                \TomatoPHP\FilamentLanguageSwitcher\FilamentLanguageSwitcherPlugin::make()
             ])
 
             ->pages([

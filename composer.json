@@ -11,6 +11,7 @@
         "filament/filament": "^3.2",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
+        "tomatophp/filament-language-switcher": "^1.0",
         "tomatophp/filament-pos": "^1.0"
     },
     "require-dev": {

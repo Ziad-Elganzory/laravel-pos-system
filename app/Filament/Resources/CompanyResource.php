@@ -21,20 +21,20 @@ class CompanyResource extends ResourcesCompanyResource
                 parent::table($table)->getColumns(),
                 [
                     ToggleColumn::make('is_default')
-                        ->label('Active')
+                        ->label(trans('filament-ecommerce::messages.company.columns.active'))
                         ->getStateUsing(fn (Company $record) => $record->is_default)
                         ->disabled()
                 ]
             ))
             ->actions([
                 Action::make('test_modal')
-                    ->label('Set Active')
+                    ->label(trans('filament-ecommerce::messages.company.action.action_lable'))
                     ->visible(fn (Company $record) => !$record->is_default)
                     ->requiresConfirmation()
-                    ->modalHeading('Activate Company')
-                    ->modalDescription('This will deactivate the currently active company. Are you sure you want to proceed?')
-                    ->modalSubmitActionLabel('Yes, activate it')
-                    ->modalCancelActionLabel('Cancel')
+                    ->modalHeading(trans('filament-ecommerce::messages.company.action.modal_heading'))
+                    ->modalDescription(trans('filament-ecommerce::messages.company.action.modal_description'))
+                    ->modalSubmitActionLabel(trans('filament-ecommerce::messages.company.action.modal_submit_action_label'))
+                    ->modalCancelActionLabel(trans('filament-ecommerce::messages.company.action.modal_cancel_action_label'))
                     ->action(function (Company $record) {
                         // Placeholder for any action you want to perform
                         $record->activate();
