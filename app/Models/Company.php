@@ -19,27 +19,38 @@ class Company extends \TomatoPHP\FilamentEcommerce\Models\Company
     }
 
     /**
-     * Check if another company is active.
-     *
-     * @return Company|null Returns the active company if one exists, null otherwise.
-     */
-    public static function getActiveCompany(): ?Company
-    {
-        return self::where('is_default', true)->first();
-    }
-
-    /**
      * Set this company as the active company, deactivating others.
      */
-    public function activate(): void
+    public function activate()
     {
-        // Deactivate the currently active company
-        static::where('is_default', true)->update(['is_default' => false]);
+        $activeCompany = self::where('is_default', true)->where('id', '!=', $this->id)->first();
 
-        // Set this company as active
-        $this->update(['is_default' => true]);
+        if($activeCompany) {
+            Notification::make()
+                ->title(trans('filament-ecommerce::messages.company.notification.fail.notification_activate_fail'))
+                ->danger()
+                ->send();
+            return false;
+        }
+        // $this->update(['is_default' => true]);
         Notification::make()
-            ->title(trans('filament-ecommerce::messages.company.notification.message', ['company' => $this->name]))
+            ->title(trans('filament-ecommerce::messages.company.notification.success.notification_activate_success', ['company' => $this->name]))
+            ->success()
+            ->send();
+    }
+
+    public function deactivate(){
+        $activeCompany = self::where('is_default', true)->where('id', '!=', $this->id)->first();
+        if(!$activeCompany) {
+            Notification::make()
+            ->title(trans('filament-ecommerce::messages.company.notification.fail.notification_deactivate_fail'))
+            ->danger()
+            ->send();
+            return false;
+        }
+        // $this->update(['is_default' => false]);
+        Notification::make()
+            ->title(trans('filament-ecommerce::messages.company.notification.success.notification_deactivate_success', ['company' => $this->name]))
             ->success()
             ->send();
     }

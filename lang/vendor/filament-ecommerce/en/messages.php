@@ -22,14 +22,30 @@ return [
             "active" => "Active",
         ],
         "action" => [
-            "action_lable" => "Set Active",
-            "modal_heading" => "Activate Company",
-            "modal_description" => "This will deactivate the currently active company. Are you sure you want to proceed?",
-            "modal_submit_action_label" => "Yes, activate it",
-            "modal_cancel_action_label" => "Cancel",
+            "activate" => [
+                "action_lable" => "Activate",
+                "modal_heading" => "Activate Company",
+                "modal_description" => "This will deactivate the currently active company. Are you sure you want to proceed?",
+                "modal_submit_action_label" => "Yes, activate it",
+                "modal_cancel_action_label" => "Cancel",
+            ],
+            "deactivate" => [
+                "action_lable" => "Deactivate",
+                "modal_heading" => "Deactivate Company",
+                "modal_description" => "You cannot deactivate this company as there must always be at least one active company.",
+                "modal_cancel_action_label" => "Close",
+            ],
+
         ],
         "notification" => [
-            "message" => ":company Activated Successfully!",
+            "success"=>[
+                "notification_activate_success" => ":company Activated Successfully!",
+                "notification_deactivate_success" => ":company Deactivated Successfully!",
+            ],
+            "fail"=>[
+                "notification_activate_fail" => "Cannot activate this company as there is already an active company.",
+                "notification_deactivate_fail" => "You cannot deactivate this company as there must always be at least one active company.",
+            ],
         ]
     ],
     'branch' => [

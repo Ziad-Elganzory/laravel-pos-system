@@ -22,14 +22,29 @@ return [
             "active" => "مفعل",
         ],
         "action" => [
-            "action_lable" => "تفعيل",
-            "modal_heading" => "تفعيل الشركة",
-            "modal_description" => "هذا سيقوم بتعطيل الشركة النشطة حاليًا. هل أنت متأكد أنك تريد المتابعة؟",
-            "modal_submit_action_label" => "نعم، قم بتفعيلها",
-            "modal_cancel_action_label" => "إلغاء",
+            "activate" => [
+                "action_lable" => "تفعيل",
+                "modal_heading" => "تفعيل الشركة",
+                "modal_description" => "هذا سيقوم بتعطيل الشركة النشطة حاليًا. هل أنت متأكد أنك تريد المتابعة؟",
+                "modal_submit_action_label" => "نعم، قم بتفعيلها",
+                "modal_cancel_action_label" => "إلغاء",
+            ],
+            "deactivate" => [
+                "action_lable" => "تعطيل",
+                "modal_heading" => "تعطيل الشركة",
+                "modal_description" => "لا يمكنك تعطيل هذه الشركة لأنه يجب أن يكون هناك دائمًا شركة واحدة نشطة على الأقل.",
+                "modal_cancel_action_label" => "إغلاق",
+            ],
         ],
         "notification" => [
-            "message" => "تم تفعيل :company بنجاح",
+            "success"=>[
+                "notification_activate_success" => "تم تفعيل :company بنجاح",
+                "notification_deactivate_success" => "تم تعطيل :company بنجاح",
+            ],
+            "fail"=>[
+                "notification_activate_fail" => "لا يمكن تفعيل هذه الشركة لأنه يوجد بالفعل شركة نشطة.",
+                "notification_deactivate_fail" => "لا يمكنك تعطيل هذه الشركة لأنه يجب أن يكون هناك دائمًا شركة واحدة نشطة على الأقل.",
+            ],
         ]
     ],
     'branch' => [
