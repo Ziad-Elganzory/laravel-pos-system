@@ -14,6 +14,10 @@ use TomatoPHP\FilamentLocations\Models\Country;
 use App\Filament\Resources\CompanyResource\Pages;
 use App\Models\Company;
 use Closure;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Toggle;
 use Illuminate\Support\Facades\Log;
@@ -145,27 +149,36 @@ class CompanyResource extends ResourcesCompanyResource
                 ]
             ))
             ->actions([
-                Action::make('activate')
-                    ->label(trans('filament-ecommerce::messages.company.action.activate.action_lable'))
-                    ->visible(fn (Company $record) => !$record->is_default)
-                    ->requiresConfirmation()
-                    ->modalHeading(trans('filament-ecommerce::messages.company.action.activate.modal_heading'))
-                    ->modalDescription(trans('filament-ecommerce::messages.company.action.activate.modal_description'))
-                    ->modalSubmitActionLabel(trans('filament-ecommerce::messages.company.action.activate.modal_submit_action_label'))
-                    ->modalCancelActionLabel(trans('filament-ecommerce::messages.company.action.activate.modal_cancel_action_label'))
-                    ->action(function (Company $record) {
-                        $record->activate();
-                    }),
-                Action::make('deactivate')
-                    ->label(trans('filament-ecommerce::messages.company.action.deactivate.action_lable'))
-                    ->visible(fn (Company $record) => $record->is_default)
-                    ->requiresConfirmation()
-                    ->modalHeading(trans('filament-ecommerce::messages.company.action.deactivate.modal_heading'))
-                    ->modalDescription(trans('filament-ecommerce::messages.company.action.deactivate.modal_description'))
-                    ->modalCancelActionLabel(trans('filament-ecommerce::messages.company.action.deactivate.modal_cancel_action_label'))
-                    ->modalSubmitAction(false)
-                    ->color('danger')
-                ]);
+                ActionGroup::make([
+                    ViewAction::make(),
+                    EditAction::make(),
+                    DeleteAction::make(),
+                    Action::make('activate')
+                        ->label(trans('filament-ecommerce::messages.company.action.activate.action_lable'))
+                        ->visible(fn (Company $record) => !$record->is_default)
+                        ->requiresConfirmation()
+                        ->modalHeading(trans('filament-ecommerce::messages.company.action.activate.modal_heading'))
+                        ->modalDescription(trans('filament-ecommerce::messages.company.action.activate.modal_description'))
+                        ->modalSubmitActionLabel(trans('filament-ecommerce::messages.company.action.activate.modal_submit_action_label'))
+                        ->modalCancelActionLabel(trans('filament-ecommerce::messages.company.action.activate.modal_cancel_action_label'))
+                        ->color('primary')
+                        ->icon('heroicon-o-check-circle')
+                        ->action(function (Company $record) {
+                            $record->activate();
+                        }),
+                    Action::make('deactivate')
+                        ->label(trans('filament-ecommerce::messages.company.action.deactivate.action_lable'))
+                        ->visible(fn (Company $record) => $record->is_default)
+                        ->requiresConfirmation()
+                        ->modalHeading(trans('filament-ecommerce::messages.company.action.deactivate.modal_heading'))
+                        ->modalDescription(trans('filament-ecommerce::messages.company.action.deactivate.modal_description'))
+                        ->modalCancelActionLabel(trans('filament-ecommerce::messages.company.action.deactivate.modal_cancel_action_label'))
+                        ->modalSubmitAction(false)
+                        ->color('danger')
+                        ->icon('heroicon-o-x-circle')
+                    ]),
+
+            ]);
     }
 
     public static function getRelations(): array
